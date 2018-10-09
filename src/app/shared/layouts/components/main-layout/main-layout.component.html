@@ -1,0 +1,55 @@
+<div fxFlex class="container">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      [fixedInViewport]="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)"
+      fxLayout="column"
+    >
+      <mat-toolbar color="primary" fxLayoutAlign="center center">
+      </mat-toolbar>
+      <div fxFlex class="nav-list-container">
+        <mat-nav-list>
+          <mat-list-item>Link de prueba side menu</mat-list-item>
+          <mat-list-item>Link de prueba side menu</mat-list-item>
+          <mat-list-item>Link de prueba side menu</mat-list-item>
+          <mat-list-item>Link de prueba side menu</mat-list-item>
+          <mat-list-item>Link de prueba side menu</mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="container" fxLayout="column">
+      <mat-toolbar color="primary" *ngIf="isHandset$ | async" fxLayoutAlign="center center" class="nav-toolbar">
+      </mat-toolbar>
+      <mat-toolbar color="primary" fxLayout="row" class="nav-toolbar">
+        <div fxFlex fxFlex.lt-md="250px" class="section-title">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <span></span>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+          <mat-menu #appMenu="matMenu">
+            <button id="profile" mat-menu-item routerLink="/user/profile">Perfil</button>
+            <a id="change-password" mat-menu-item href="https://account.activedirectory.windowsazure.com/changepassword.aspx" target="update_password" rel="noopener">Actualizar contraseña</a>
+            <a id="password-recovery" mat-menu-item href="https://aka.ms/ssprsetup" target="recovery_password" rel="noopener">Configurar recuperación contraseña</a>
+            <button id="logout" mat-menu-item routerLink="/logout">Cerrar sesión</button>
+          </mat-menu>
+          <button id="profile-menu" mat-icon-button class="profile-btn" [matMenuTriggerFor]="appMenu">
+          </button>
+        </div>
+      </mat-toolbar>
+      <main appSlideViewContainer fxFlex class="main-container">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
