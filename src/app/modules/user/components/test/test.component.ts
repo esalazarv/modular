@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SlideViewService} from '../../../../shared/slide-view/services/slide-view.service';
+import {OtherComponentComponent} from '../other-component/other-component.component';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private slideViewService: SlideViewService,
+  ) { }
 
   ngOnInit() {
   }
 
+  click() {
+    this.slideViewService.open(OtherComponentComponent, {});
+    console.log('ok');
+  }
 }

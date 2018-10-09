@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { SharedModule } from '../../shared/shared.module';
 import {CoreModule} from '../../core/core.module';
 import { TestComponent } from './components/test/test.component';
+import { OtherComponentComponent } from './components/other-component/other-component.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,14 @@ import { TestComponent } from './components/test/test.component';
     SharedModule,
     UserRoutingModule,
   ],
-  declarations: [ProfilePageComponent, TestComponent]
+  declarations: [
+    ProfilePageComponent,
+    TestComponent,
+    OtherComponentComponent
+  ],
+  entryComponents: [
+    TestComponent,
+    OtherComponentComponent
+  ]
 })
 export class UserModule { }

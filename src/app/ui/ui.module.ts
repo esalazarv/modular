@@ -23,11 +23,13 @@ import {
   MatPaginatorModule,
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
@@ -51,6 +53,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   ],
   exports: [
     LayoutModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,

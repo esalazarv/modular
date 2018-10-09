@@ -1,0 +1,19 @@
+.slide-view-wrapper {
+  z-index: 10;
+  position: absolute;
+  background: white;
+  width: 100%;
+  top:0;
+  left:0;
+  min-height: 100%;
+  animation: 0.5s  slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
